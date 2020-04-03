@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Prueb_LevelII</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_artist">Artist</string>
+    <string name="title_track">Tracks</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
 </resources>
