@@ -9,4 +9,7 @@
     <string name="hello_blank_fragment">Hello</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
+
+    <!-- Text for ArtistFragment -->
+    <string name="oyentes">Oyentes:</string>
 </resources>
