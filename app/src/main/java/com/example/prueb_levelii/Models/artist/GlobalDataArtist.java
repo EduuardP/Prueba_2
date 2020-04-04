@@ -1,14 +1,14 @@
-package com.example.prueb_levelii.Models;
+package com.example.prueb_levelii.Models.artist;
 
 import java.util.List;
 
-public class GlobalData {
+public class GlobalDataArtist {
 
 
 
   private List<DataArtist> artist;
 
-  public GlobalData(List<DataArtist> artist){
+  public GlobalDataArtist(List<DataArtist> artist){
 
     this.artist = artist;
   }

@@ -1,9 +1,7 @@
 package com.example.prueb_levelii.Services;
 
-import android.os.AsyncTask;
-
-import com.example.prueb_levelii.Models.DataArtist;
-import com.example.prueb_levelii.Models.TopData;
+import com.example.prueb_levelii.Models.artist.DataArtist;
+import com.example.prueb_levelii.Models.artist.TopArtist;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -18,10 +16,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class ServiceArtists {
+public class ServiceApi {
 
     String url = "https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=colombia&api_key=829751643419a7128b7ada50de590067&limit=20&format=json";
-    TopData dataArray = null ;
+    TopArtist dataArray = null ;
 
     public Observable observableArtist(){
         return Observable.create(new ObservableOnSubscribe<List<DataArtist>>() {
@@ -49,7 +47,7 @@ public class ServiceArtists {
             final String myResponse = response.body().string();
 
             Gson gson = new Gson();
-            dataArray = gson.fromJson(myResponse, TopData.class);
+            dataArray = gson.fromJson(myResponse, TopArtist.class);
 
 
 

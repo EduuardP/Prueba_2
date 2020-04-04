@@ -1,4 +1,4 @@
-package com.example.prueb_levelii.Models;
+package com.example.prueb_levelii.Models.artist;
 
 import com.google.gson.annotations.SerializedName;
 

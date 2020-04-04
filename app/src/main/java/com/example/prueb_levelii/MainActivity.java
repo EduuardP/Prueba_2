@@ -7,24 +7,18 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.prueb_levelii.Models.DataArtist;
-import com.example.prueb_levelii.Models.TopData;
-import com.example.prueb_levelii.Services.ServiceArtists;
+import com.example.prueb_levelii.Models.artist.DataArtist;
 import com.example.prueb_levelii.ui.topArtist.ArtistAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
 import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-
-import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 

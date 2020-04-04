@@ -1,4 +1,4 @@
-package com.example.prueb_levelii.Models;
+package com.example.prueb_levelii.Models.artist;
 
 import java.util.List;
 

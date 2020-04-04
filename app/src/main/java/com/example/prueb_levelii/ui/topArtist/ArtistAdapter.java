@@ -12,8 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-import com.example.prueb_levelii.Models.DataArtist;
+import com.example.prueb_levelii.Models.artist.DataArtist;
 import com.example.prueb_levelii.R;
+import com.squareup.picasso.Picasso;
 
 
 import java.util.List;
@@ -70,9 +71,9 @@ public class ArtistAdapter extends ArrayAdapter<DataArtist> {
         holder.numOyentes.setText(artist.get(position).getListeners());
         holder.urlArtist.setText(artist.get(position).getUrl());
 
-       // Picasso.with(getContext())
-       //         .load(artist.get(position).getImage().get(2).getUrl())
-       //         .into(holder.imageView);
+        Picasso.with(getContext())
+                .load(artist.get(position).getImage().get(2).getUrl())
+                .into(holder.imageView);
 
 
 

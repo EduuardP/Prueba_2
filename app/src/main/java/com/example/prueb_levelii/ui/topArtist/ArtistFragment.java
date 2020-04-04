@@ -1,7 +1,5 @@
 package com.example.prueb_levelii.ui.topArtist;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,12 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.prueb_levelii.Models.DataArtist;
+import com.example.prueb_levelii.Models.artist.DataArtist;
 import com.example.prueb_levelii.R;
-import com.example.prueb_levelii.Services.ServiceArtists;
+import com.example.prueb_levelii.Services.ServiceApi;
 
 import java.util.List;
 
@@ -37,6 +36,7 @@ public class ArtistFragment extends Fragment {
     ListView listArtist;
     ArtistAdapter artistAdapter;
     private Disposable disposable;
+    ServiceApi serviceApi = new ServiceApi();
 
     public ArtistFragment() {
         // Required empty public constructor
@@ -49,6 +49,8 @@ public class ArtistFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
     }
 
     @Override
@@ -58,11 +60,22 @@ public class ArtistFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_artist, container, false);
         listArtist = (ListView) view.findViewById(R.id.listArtist);
 
-        ServiceArtists serviceArtists = new ServiceArtists();
-        serviceArtists.observableArtist()
+        serviceApi = new ServiceApi();
+        serviceApi.observableArtist()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observerArtist());
+
+
+        listArtist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(),
+                        ""+artistAdapter.getItem(position).getName(),
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
 
         return view;
     }
@@ -105,6 +118,7 @@ public class ArtistFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         disposable.dispose();
+
     }
 
 
