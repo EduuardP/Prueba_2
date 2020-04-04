@@ -12,4 +12,9 @@
 
     <!-- Text for ArtistFragment -->
     <string name="oyentes">Oyentes:</string>
+
+
+    <string name="errorData">Error Obteniendo Datos</string>
+
+
 </resources>

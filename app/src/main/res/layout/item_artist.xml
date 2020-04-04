@@ -29,6 +29,7 @@
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/imageArtist"
         android:layout_toRightOf="@+id/imageArtist"
+        android:textColor="@android:color/black"
         android:textStyle="bold" />
 
     <TextView
@@ -41,7 +42,8 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="2dp"
-        android:text="@string/oyentes" />
+        android:text="@string/oyentes"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/numOyentesArtist"
@@ -52,7 +54,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/oyentes"
-        android:layout_toRightOf="@+id/oyentes" />
+        android:layout_toRightOf="@+id/oyentes"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/urlArtist"
@@ -63,5 +66,6 @@
         android:layout_alignLeft="@+id/oyentes"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="2dp" />
+        android:layout_marginTop="2dp"
+        android:textColor="@android:color/black" />
 </RelativeLayout>
