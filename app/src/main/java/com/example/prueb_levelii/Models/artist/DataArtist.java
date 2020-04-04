@@ -4,6 +4,26 @@ import java.util.List;
 
 public class DataArtist {
 
+
+
+    private String name;
+    private  String listeners;
+    private  String mbid;
+    private  String url;
+    private String streamable;
+    private List<Images> image;
+
+
+
+    public DataArtist(String name, String listeners, String mbid, String url, String streamable, List<Images> image) {
+        this.name = name;
+        this.listeners = listeners;
+        this.mbid = mbid;
+        this.url = url;
+        this.streamable = streamable;
+        this.image = image;
+    }
+
     public String getName() {
         return name;
     }
@@ -52,25 +72,4 @@ public class DataArtist {
         this.image = image;
     }
 
-    private String name;
-    private  String listeners;
-    private  String mbid;
-    private  String url;
-    private String streamable;
-    private List<Images> image;
-
-
-
-    public DataArtist(String name, String listeners, String mbid, String url, String streamable, List<Images> image) {
-        this.name = name;
-        this.listeners = listeners;
-        this.mbid = mbid;
-        this.url = url;
-        this.streamable = streamable;
-        this.image = image;
-    }
-/*
-    public String getMessage(){
-        return message;
-    } */
 }

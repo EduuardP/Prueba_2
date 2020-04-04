@@ -117,13 +117,13 @@ public class ArtistFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        disposable.dispose();
+      //  disposable.dispose();
 
     }
 
-
-
-
-
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        disposable.dispose();
+    }
 }
