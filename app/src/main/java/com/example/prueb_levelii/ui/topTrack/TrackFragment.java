@@ -89,16 +89,14 @@ public class TrackFragment extends Fragment {
 
             @Override
             public void onNext(List<DataTrack> tracks) {
-                Log.d(TAG, "onNext: "+tracks.get(0).getName());
                 trackAdapter = new TrackAdapter(getContext(),R.layout.item_track,tracks);
                 listView.setAdapter(trackAdapter);
-                Toast.makeText(getContext(),tracks.get(0).getName(),Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(@NonNull Throwable e) {
 
-                Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),R.string.errorData,Toast.LENGTH_SHORT).show();
 
             }
 
