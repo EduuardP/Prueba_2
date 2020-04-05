@@ -1,6 +1,7 @@
 package com.example.prueb_levelii.ui.topTrack;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,29 +13,32 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.prueb_levelii.Models.artist.DataArtist;
+import com.example.prueb_levelii.Models.track.DataTrack;
 import com.example.prueb_levelii.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class TrackAdapter extends ArrayAdapter<DataArtist> {
+import static java.lang.Integer.parseInt;
+
+public class TrackAdapter extends ArrayAdapter<DataTrack> {
 
 
     private Context mContext;
     private int mLayoutResourceId;
-    private List<DataArtist> artist;
+    private List<DataTrack> tracks;
 
-    public TrackAdapter(@NonNull Context context, int resource, @NonNull List<DataArtist> artist) {
-        super(context, resource, artist);
+    public TrackAdapter(@NonNull Context context, int resource, @NonNull List<DataTrack> tracks) {
+        super(context, resource, tracks);
         this.mContext = context;
         this.mLayoutResourceId = resource;
-        this.artist = artist;
+        this.tracks = tracks;
     }
 
 
     @Nullable
     @Override
-    public DataArtist getItem(int position) {
+    public DataTrack getItem(int position) {
         return super.getItem(position);
     }
 
@@ -50,11 +54,13 @@ public class TrackAdapter extends ArrayAdapter<DataArtist> {
 
             holder = new PlaceHolder();
 
-            holder.nameArtist = (TextView) row.findViewById(R.id.nameArtist);
-            holder.numOyentes = (TextView) row.findViewById(R.id.numOyentesArtist);
-            holder.urlArtist = (TextView) row.findViewById(R.id.urlArtist);
 
-            holder.imageView = (ImageView) row.findViewById(R.id.imageArtist);
+            holder.nameTask = (TextView) row.findViewById(R.id.nameTrack);
+            holder.numOyentes = (TextView) row.findViewById(R.id.numOyentesTrack);
+            holder.rank = (TextView) row.findViewById(R.id.numRankTrack);
+            holder.nameArtist = (TextView) row.findViewById(R.id.nameArtistTrack);
+            holder.duration = (TextView) row.findViewById(R.id.numDurationTrack);
+            holder.imageView = (ImageView) row.findViewById(R.id.imageArtistTrack);
 
             row.setTag(holder);
         }
@@ -64,13 +70,18 @@ public class TrackAdapter extends ArrayAdapter<DataArtist> {
         }
 
 
+        holder.nameTask.setText(tracks.get(position).getName());
+        holder.numOyentes.setText(tracks.get(position).getListeners());
+        holder.rank.setText(tracks.get(position).getAttrib().getRank());
+        holder.nameArtist.setText(tracks.get(position).getName());
 
-        holder.nameArtist.setText(artist.get(position).getName());
-        holder.numOyentes.setText(artist.get(position).getListeners());
-        holder.urlArtist.setText(artist.get(position).getUrl());
+        int duracion =  parseInt(tracks.get(position).getDuration());
+        int minutos = duracion/60;
+        int segundos = duracion%60;
+        holder.duration.setText(""+minutos+":"+segundos);
 
         Picasso.with(getContext())
-                .load(artist.get(position).getImage().get(2).getUrl())
+                .load(tracks.get(position).getImage().get(2).getUrl())
                 .into(holder.imageView);
 
 
@@ -82,9 +93,11 @@ public class TrackAdapter extends ArrayAdapter<DataArtist> {
 
 
     private class PlaceHolder {
+        TextView nameTask;
         TextView nameArtist;
         TextView numOyentes;
-        TextView urlArtist;
+        TextView rank;
+        TextView duration;
         ImageView imageView;
     }
 }

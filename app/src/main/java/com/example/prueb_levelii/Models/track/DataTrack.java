@@ -1,7 +1,10 @@
 package com.example.prueb_levelii.Models.track;
 
 import com.example.prueb_levelii.Models.artist.DataArtist;
+import com.example.prueb_levelii.Models.artist.Images;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class DataTrack {
 
@@ -11,10 +14,11 @@ public class DataTrack {
     private  String mbid;
     private  String url;
     private Streamable streamable;
-    private DataArtist artist;
-    @SerializedName("@attrib") private Attrib attrib;
+    private ArtistTrack artist;
+    private List<Images> image;
+    @SerializedName("@attr") private Attrib attrib;
 
-    public DataTrack(String name, String duration, String listeners, String mbid, String url, Streamable streamable, DataArtist artist, Attrib attrib) {
+    public DataTrack(String name, String duration, String listeners, String mbid, String url, Streamable streamable, ArtistTrack artist, List<Images> image, Attrib attrib) {
         this.name = name;
         this.duration = duration;
         this.listeners = listeners;
@@ -22,8 +26,10 @@ public class DataTrack {
         this.url = url;
         this.streamable = streamable;
         this.artist = artist;
+        this.image = image;
         this.attrib = attrib;
     }
+
 
     public String getName() {
         return name;
@@ -49,8 +55,12 @@ public class DataTrack {
         return streamable;
     }
 
-    public DataArtist getArtist() {
+    public ArtistTrack getArtist() {
         return artist;
+    }
+
+    public List<Images> getImage() {
+        return image;
     }
 
     public Attrib getAttrib() {

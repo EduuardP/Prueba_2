@@ -12,6 +12,14 @@
 
     <!-- Text for ArtistFragment -->
     <string name="oyentes">Oyentes:</string>
+    <string name="image_artist">Imagen de Artista</string>
+
+
+
+    <!-- Text for TrackFragment -->
+    <string name="rank">Ranking:</string>
+    <string name="duration">Duración:</string>
+
 
 
     <string name="errorData">Error Obteniendo Datos</string>

@@ -109,13 +109,15 @@ public class ServiceApi {
             Log.d(TAG, "onResponse: "+myResponse);
             Gson gson = new Gson();
             topTrack = gson.fromJson(myResponse,TopTrack.class);
-            Log.d(TAG, "onResponse: "+topTrack.getTracks().getTrack().get(0).getName());
 
         }
         catch (IOException e) {
             e.printStackTrace();
             return null;
         }
+
+
+
 
         return topTrack.getTracks().getTrack();
     }

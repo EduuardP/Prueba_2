@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.topTrack.TrackFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <SearchView
+        android:id="@+id/searchTrack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/listTrack"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="sdfsdfsdfsdf" />
-
-</FrameLayout>
+        android:layout_below="@+id/searchTrack"
+        android:layout_marginTop="0dp" />
+</RelativeLayout>

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.prueb_levelii.MainActivity;
@@ -47,7 +48,8 @@ public class TrackFragment extends Fragment {
     private Disposable disposable;
     ServiceApi serviceApi = new ServiceApi();
     String urlTrack = "https://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=colombia&api_key=829751643419a7128b7ada50de590067&limit=20&format=json";
-    public TopTrack topTrack = null;
+    TrackAdapter trackAdapter;
+    ListView listView;
 
     private static final String TAG = "TrackFragment" ;
 
@@ -67,7 +69,7 @@ public class TrackFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_track, container, false);
-
+        listView = (ListView) view.findViewById(R.id.listTrack);
         serviceApi = new ServiceApi();
         serviceApi.observableTrack()
                 .subscribeOn(Schedulers.io())
@@ -87,9 +89,9 @@ public class TrackFragment extends Fragment {
 
             @Override
             public void onNext(List<DataTrack> tracks) {
-
-               // artistAdapter = new ArtistAdapter(getContext(),R.layout.item_artist,artists);
-               // listArtist.setAdapter(artistAdapter);
+                Log.d(TAG, "onNext: "+tracks.get(0).getName());
+                trackAdapter = new TrackAdapter(getContext(),R.layout.item_track,tracks);
+                listView.setAdapter(trackAdapter);
                 Toast.makeText(getContext(),tracks.get(0).getName(),Toast.LENGTH_SHORT).show();
             }
 
