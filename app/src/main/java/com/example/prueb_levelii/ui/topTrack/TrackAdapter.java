@@ -73,7 +73,7 @@ public class TrackAdapter extends ArrayAdapter<DataTrack> {
         holder.nameTask.setText(tracks.get(position).getName());
         holder.numOyentes.setText(tracks.get(position).getListeners());
         holder.rank.setText(tracks.get(position).getAttrib().getRank());
-        holder.nameArtist.setText(tracks.get(position).getName());
+        holder.nameArtist.setText(tracks.get(position).getArtist().getName());
 
         int duracion =  parseInt(tracks.get(position).getDuration());
         int minutos = duracion/60;

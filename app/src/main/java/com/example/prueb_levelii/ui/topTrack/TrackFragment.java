@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -77,6 +78,15 @@ public class TrackFragment extends Fragment {
                 .subscribe(observerTrack());
 
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(),
+                        ""+trackAdapter.getItem(position).getName(),
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
         return view;
     }
 
@@ -118,7 +128,7 @@ public class TrackFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-       // disposable.dispose();
+     //   disposable.dispose();
 
     }
 
